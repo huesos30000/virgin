@@ -1,11 +1,9 @@
-﻿define g = Character('Главный герой', color="#fea500")
-define p = Character('Психолог', color="#0000ff")
-define mg = Character('Мысли главного героя', color="#a6a6a6ff")
-define f = Character('', color="#000000ff")
-define b = Character('Босс', color="#7050ffff")
-define k = Character('Коллега', color="#fcff9eff")
-define tp = Character('Телефон', color="#fcff9eff")
-define d = Character('Отец', color="#fcff9eff")
+﻿define p = Character('Психолог', color="#000000")
+define f = Character('', color="#000000")
+define b = Character('Босс', color="#000000")
+define k = Character('Коллега', color="#000000")
+define tp = Character('Телефон', color="#000000")
+define d = Character('Отец', color="#000000")
 
 image bg tiled = Tile("images/bg/психолог фон.png")
 image bg street = Tile("images/bg/улица день.png")
@@ -22,14 +20,36 @@ image b_image = "images/person/Босс.png"
 image k_image = "images/person/Коллега.png"
 image cake = "images/bg/тортик.png"
 image f_image = "images/person/отец ГГ.png"
+image gg_kid_img = "images/person/ГГ ребенок.png"
 
 transform half_size: 
-    zoom 0.5 #adjust as required
+    zoom 0.4 #adjust as required
+    xalign 1.0
 
-transform half_size2: 
+transform half_size_kid: 
+    zoom 0.3 #adjust as required
+    xalign 1.0
+    yalign 1.3
+
+transform half_size_p: 
+    zoom 0.4 #adjust as required
+
+transform half_size_k: 
     zoom 0.9 #adjust as required
 
+transform half_size_d: 
+    zoom 0.3 #adjust as required
+    yalign 0.5
+
+transform half_size_cake: 
+    zoom 0.3 #adjust as required
+    xalign 0.5
+    yalign 0.5
+
 label start:
+    $ player_name = renpy.input("Введите ваше имя:")
+    $ g = Character(player_name, color="#0015ff")
+    $ mg = Character('Мысли [player_name]', color="#0095ff")
     g "В детстве меня никто не любил, или может любил, но я об этом ничего не помню."
     g "Моя мать скончалась, когда мне было 2 года, а я даже и не догадываюсь почему это произошло."
     g "Дома было не принято обсуждать это."
@@ -40,11 +60,11 @@ label start:
     g "В погоне за этим, я осознал, что у меня совсем нет друзей…"
     g "Доктор, я не знаю почему так...."
     show bg tiled
-    show p_image at half_size
+    show p_image at half_size_p
     p "Тут есть над чем поразмыслить, но кажется наше время подошло к концу, с вас 5 тысяч." 
     p "увидимся на следующей неделе!"
-    hide p_image
     show gg_img at half_size
+    hide p_image
     g "До встречи."
     play sound "audio/дверь.ogg"
     pause 0.5
@@ -64,7 +84,7 @@ label start:
     show bg boss
     show gg_img at half_size
     g "Доброе утро, Босс, могли бы мы с вами поговорить?"
-    show b_image at half_size
+    show b_image at half_size_p
     b "Доброе, извини, но я сейчас занят."
     b "Кстати, У меня для тебя новость."
     b "Меня переводят в главный офис."
@@ -99,14 +119,14 @@ label start:
     mg "И все же, я не могу подключиться к этой атмосфере радости, как будто я одинокий путник, заблудившийся в шумном городе развлечений..."
     mg "Меня охватывает чувство отчужденности, когда я пытаюсь найти свое место среди этих людей, они кажутся такими далекими, как будто я с другой планеты. "
     mg "И хотя я чувствую себя некомфортно среди этой толпы развлекающихся людей, я также понимаю, что это часть жизни, и я должен найти способы справиться с этим, не потеряв себя в этом море шума и движения. "
-    show k_image at half_size2
-    k "g, ты че в угол забился? Давай с нами танцевать!"
+    show k_image at half_size_k
+    k "[player_name], ты че в угол забился? Давай с нами танцевать!"
     show gg_img at half_size
     g "Я не хочу танцевать, оставь меня в покое."
     k "Да-ну, погнали с нами! "
     g "А знаешь что? Я соглашусь. Только не надо потом говорить, что я плохо танцую."
     k "Да я удивился, что ты согласился ваще!"
-    k "Посторонись, g на танцполе!"
+    k "Посторонись, [player_name] на танцполе!"
     hide k_image
     hide gg_img
     mg "Это…. не так уж и плохо."
@@ -134,7 +154,7 @@ label start:
     mg "Я просто должен стать счастливым!"
     # сцена др гг
     show bg kitchen
-    show cake at half_size
+    show cake at half_size_cake
     mg "Вот уже 30 лет жизни позади."
     mg "Я хорош собой, успешен…"
     mg "Ладно, может быть мне одиноко."
@@ -146,14 +166,16 @@ label start:
     hide cake
     show bg father
     g "Отец, извини, что беспокою…"
-    show f_image at half_size
+    show f_image at half_size_d
     d "Сколько можно тратить мое время впустую, что на этот раз тебе нужно?!"
+    show gg_kid_img at half_size_kid
     g "Извини…"
     g "В школе нам задали написать сочинение на тему: “Кем работают мои родители”. Расскажи про свою работу, пожалуйста."
     d "Обязательно было отвлекать меня?! Выдумай что-нибудь или напиши про свою мать."
     g "Но мама…"
     d "Так и напиши, что твоя мать никем не работает, потому что сдохла!"
     hide f_image
+    hide gg_kid_img
     show bg kitchen
     mg "К сожалению, я так и написал В школе меня никто не понял: ни одноклассники, ни учитель."
     mg "Все обходили меня стороной, словно я заражу их страшной болезнью. Это был полный идиотизм."

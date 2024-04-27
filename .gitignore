@@ -1,0 +1,43 @@
+# Byte-compiled / optimized / DLL files
+.pytest_cache
+__pycache__/
+*.py[cod]
+*$py.class
+dist/
+core.egg-info/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+typings/
+typings
+
+
+# all
+.idea
+.vscode
+.env.local
+.env-local
+.coverage
+coverage.xml
+report.xml
+.venv
+*.bak
+build
+build/
+
+data
+data/
+
+.pyre
+.pyre/
+
+.pytype
+.pytype/
+
+core.svg
+*.save
+
+models
+models/
