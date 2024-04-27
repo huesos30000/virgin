@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 152: expected 'simple_expression' not found.
-    hide image
-              ^
+File "game/script.rpy", line 53: end of line expected.
+    g "В детстве меня никто не любил, или может любил, но я об этом ничего не помню." typewriter
+                                                                                      ^
 
 Ren'Py Version: Ren'Py 8.2.0.24012702
-Wed Apr 24 20:58:44 2024
+Sat Apr 27 20:42:48 2024
