@@ -11,6 +11,8 @@ image bg boss = Tile("images/bg/работа день.jpg")
 image bg gym = Tile("images/bg/качалка.jpg")
 image bg wedding = Tile("images/bg/свадьба.jpg")
 image bg room = Tile("images/bg/комната гг.jpg")
+image bg srakoina_without = Tile("images/bg/раковина без воды.jpg")
+image bg srakoina = Tile("images/bg/раковина.jpg")
 image bg kitchen = Tile("images/bg/кухня.jpg")
 image bg father = Tile("images/bg/кабинет отца флешбек.png")
 
@@ -21,30 +23,43 @@ image k_image = "images/person/Коллега.png"
 image cake = "images/bg/тортик.png"
 image f_image = "images/person/отец ГГ.png"
 image gg_kid_img = "images/person/ГГ ребенок.png"
+image mail_img = "images/bg/конверт.png"
+image gg_img_home_vibe = "images/person/гг пижама.png"
 
 transform half_size: 
     zoom 0.4 #adjust as required
-    xalign 1.0
+    xalign 0
+
+transform half_size_centre: 
+    zoom 0.4 #adjust as required
+    xalign 0.5
+
 
 transform half_size_kid: 
     zoom 0.3 #adjust as required
-    xalign 1.0
     yalign 1.3
 
 transform half_size_p: 
     zoom 0.4 #adjust as required
+    xalign 1.0
 
 transform half_size_k: 
     zoom 0.9 #adjust as required
+    xalign 1.0
 
 transform half_size_d: 
     zoom 0.3 #adjust as required
     yalign 0.5
+    xalign 1.0
 
 transform half_size_cake: 
-    zoom 0.3 #adjust as required
+    zoom 0.25 #adjust as required
     xalign 0.5
     yalign 0.5
+
+screen textbutton_screen():
+    vbox:
+        textbutton "Оставить конверт" action Jump("wine")
 
 label start:
     $ player_name = renpy.input("Введите ваше имя:")
@@ -65,11 +80,13 @@ label start:
     p "увидимся на следующей неделе!"
     show gg_img at half_size
     hide p_image
+    hide gg_image
     g "До встречи."
     play sound "audio/дверь.ogg"
     pause 0.5
     play sound "audio/ночной город.ogg"
     show bg street
+    show gg_img at half_size_centre
     mg "Мне кажется, что все это абсолютно глупая затея и ни к чему эти пустые разговоры с психологом не приведут...."
     mg "Лучше бы еще один час поработал или сходил в качалку."
     hide gg_img
@@ -111,9 +128,17 @@ label start:
     stop sound
     with Dissolve(2.0)
     show bg wedding
+    show gg_img at half_size_centre
     g "Поздравляю вас с этим замечательным днем. Желаю вам любви, счастья и процветания в вашем новом совместном пути."
+    hide gg_img
     play sound "аплодисменты.ogg"
-    g "*оставляет конверт"
+    menu:
+        "Оставить конверт"
+        "Конверт":
+            pass
+    show mail_img at half_size_centre
+    f "*Оставляет конверт на столе*"
+    hide mail_img
     play sound "музыка для танцев.m4a"
     mg "Я чувствую себя как наблюдатель, стоящий на отшибе, взглядом скользящий по лицам, которые сияют от веселья и беззаботности."
     mg "И все же, я не могу подключиться к этой атмосфере радости, как будто я одинокий путник, заблудившийся в шумном городе развлечений..."
@@ -141,6 +166,7 @@ label start:
     tp "Босс: По случаю моей свадьбы, объявляю всем выходной!! Сегодня все дела отменяются, поэтому отдохните как следует и отпразднуйте мою свадьбу!!"
     tp "Коллега 1: Ура! Поздравляем вас!"
     tp "Коллега 2: Счастья молодоженам!!"
+    show gg_img_home_vibe at half_size_centre
     mg "Иногда у меня возникает такое ощущение, что весь мир наслаждается счастьем, а я остаюсь за бортом этой радости."
     mg "Наблюдение за влюбленными парочками, улыбающимися и целующимися, иногда вызывает странный смешанный набор эмоций внутри меня."
     mg "С одной стороны, мне все равно на них, но с другой – это как соль на рану."
@@ -152,9 +178,19 @@ label start:
     mg "Каждый человек и его история уникальны, и сравнивать себя с кем-то другим – это как сравнивать яблоки с апельсинами..."
     mg "Но я точно уверен в том, что заслуживаю самой большой на свете любви..."
     mg "Я просто должен стать счастливым!"
+    hide gg_img_home_vibe
     # сцена др гг
     show bg kitchen
     show cake at half_size_cake
+    g "С днем рождения меня.. С днем рождения меня…"
+    menu:
+        "Загадать желание"
+        "Да":
+            $ dream = renpy.input("Введите желание:")
+        "Нет":
+            pass
+    hide cake
+    show gg_img_home_vibe at half_size_centre
     mg "Вот уже 30 лет жизни позади."
     mg "Я хорош собой, успешен…"
     mg "Ладно, может быть мне одиноко."
@@ -163,7 +199,7 @@ label start:
     mg "Ведь быть одному не значит быть одиноким, но даже в этой тишине моего собственного мира я ощущаю, что чего-то не хватает."
     mg "И это не просто отсутствие кого-то, это как будто часть меня осталась где-то далеко..."
     mg "И я брожу по этому миру, стремясь найти этот утраченный фрагмент своей души..."
-    hide cake
+    hide gg_img_home_vibe
     show bg father
     g "Отец, извини, что беспокою…"
     show f_image at half_size_d
@@ -177,20 +213,27 @@ label start:
     hide f_image
     hide gg_kid_img
     show bg kitchen
+    show gg_img_home_vibe at half_size_centre
     mg "К сожалению, я так и написал В школе меня никто не понял: ни одноклассники, ни учитель."
     mg "Все обходили меня стороной, словно я заражу их страшной болезнью. Это был полный идиотизм."
     mg "Зато никто меня не отвлекал от учебы, я мог не тратить свое драгоценное время на эти пустяки...!"
     mg "..."
     mg "Я рассуждаю сейчас как мой отец, какой стыд."
+    hide gg_img_home_vibe
     show bg room
     mg "совсем не спится, все тело горит, кажется, что я сейчас умру от обезвоживания, и сколько бы я не выпил воды, это не спасает, нужно постараться заснуть."
     with Dissolve(2.0)
     play sound "audio/будильник.mp3"
     mg "Кажется я чувствую себя уже лучше, но всё ещё очень хочу пить и спать."
+    show bg srakoina_without
+    menu:
+        "Попить воды"
+        "Набрать воду":
+            pass
+    show bg srakoina
     play sound "audio/вода из крана.mp3"
-    g "*набирает воду*"
-    stop sound
     mg "Как обычно поднёс его к раковине чтобы набрать воды и... Вода не попадала в стакан..."
+    stop sound
     mg "Нет, она не просто не попадала, струя все время меняла свое направление прямо в воздухе, будто по волшебству..."
     g "Что за чертовщина?!"
     mg "Нет, я не испугался или ещё чего, может так и было бы, если бы я не был таким сонным, но я определённо в замешательстве…"
@@ -198,6 +241,7 @@ label start:
     mg "Я просто так не сдамся!"
     play sound "audio/разбилось стекло.ogg"
     g "Стакан... Лопнул..."
+    show bg srakoina_without
     mg "Пара осколков впились в руку, не глубоко, но до крови."
     mg "Я обработал раны, и взглянув на часы понял, что уже опаздываю."
     mg "Наспех собравшись я побежал на станцию."
