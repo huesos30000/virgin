@@ -41,3 +41,6 @@ core.svg
 
 models
 models/
+
+*.txt
+*.rpyb
