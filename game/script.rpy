@@ -11,6 +11,8 @@ image bg boss = Tile("images/bg/работа день.jpg")
 image bg gym = Tile("images/bg/качалка.jpg")
 image bg wedding = Tile("images/bg/свадьба.jpg")
 image bg room = Tile("images/bg/комната гг.jpg")
+image bg srakoina_without = Tile("images/bg/раковина без воды.jpg")
+image bg srakoina = Tile("images/bg/раковина.jpg")
 image bg kitchen = Tile("images/bg/кухня.jpg")
 image bg father = Tile("images/bg/кабинет отца флешбек.png")
 
@@ -180,6 +182,15 @@ label start:
     # сцена др гг
     show bg kitchen
     show cake at half_size_cake
+    g "С днем рождения меня.. С днем рождения меня…"
+    menu:
+        "Загадать желание"
+        "Да":
+            $ dream = renpy.input("Введите желание:")
+        "Нет":
+            pass
+    hide cake
+    show gg_img_home_vibe at half_size_centre
     mg "Вот уже 30 лет жизни позади."
     mg "Я хорош собой, успешен…"
     mg "Ладно, может быть мне одиноко."
@@ -188,7 +199,7 @@ label start:
     mg "Ведь быть одному не значит быть одиноким, но даже в этой тишине моего собственного мира я ощущаю, что чего-то не хватает."
     mg "И это не просто отсутствие кого-то, это как будто часть меня осталась где-то далеко..."
     mg "И я брожу по этому миру, стремясь найти этот утраченный фрагмент своей души..."
-    hide cake
+    hide gg_img_home_vibe
     show bg father
     g "Отец, извини, что беспокою…"
     show f_image at half_size_d
@@ -202,20 +213,24 @@ label start:
     hide f_image
     hide gg_kid_img
     show bg kitchen
+    show gg_img_home_vibe at half_size_centre
     mg "К сожалению, я так и написал В школе меня никто не понял: ни одноклассники, ни учитель."
     mg "Все обходили меня стороной, словно я заражу их страшной болезнью. Это был полный идиотизм."
     mg "Зато никто меня не отвлекал от учебы, я мог не тратить свое драгоценное время на эти пустяки...!"
     mg "..."
     mg "Я рассуждаю сейчас как мой отец, какой стыд."
+    hide gg_img_home_vibe
     show bg room
     mg "совсем не спится, все тело горит, кажется, что я сейчас умру от обезвоживания, и сколько бы я не выпил воды, это не спасает, нужно постараться заснуть."
     with Dissolve(2.0)
     play sound "audio/будильник.mp3"
     mg "Кажется я чувствую себя уже лучше, но всё ещё очень хочу пить и спать."
+    show bg srakoina_without
     menu:
         "Попить воды"
         "Набрать воду":
             pass
+    show bg srakoina
     play sound "audio/вода из крана.mp3"
     mg "Как обычно поднёс его к раковине чтобы набрать воды и... Вода не попадала в стакан..."
     stop sound
