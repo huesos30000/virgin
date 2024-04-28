@@ -1,9 +1,14 @@
-Merge
-
+Merge: ec413dc 12239cd
 Author: redyc123 <redyc123@gmail.com>
-Date:   Sun Apr 28 08:58:44 2024 +0500
+Date:   Sun Apr 28 09:19:02 2024 +0500
 
     0.3.2
+
+commit 12239cdd426fc90d6a75a3b6e0ab3086967c5069 (origin/dev, dev)
+Author: redyc123 <redyc123@gmail.com>
+Date:   Sun Apr 28 09:18:43 2024 +0500
+
+    fix music
 
 Author: redyc123 <redyc123@gmail.com>
 Date:   Sun Apr 28 08:46:33 2024 +0500
