@@ -21,10 +21,17 @@ image k_image = "images/person/Коллега.png"
 image cake = "images/bg/тортик.png"
 image f_image = "images/person/отец ГГ.png"
 image gg_kid_img = "images/person/ГГ ребенок.png"
+image mail_img = "images/bg/конверт.png"
 
 transform half_size: 
     zoom 0.4 #adjust as required
     xalign 1.0
+
+transform half_size_centre: 
+    zoom 0.4 #adjust as required
+    xalign 0.5
+    yalign 0.5
+
 
 transform half_size_kid: 
     zoom 0.3 #adjust as required
@@ -45,6 +52,10 @@ transform half_size_cake:
     zoom 0.3 #adjust as required
     xalign 0.5
     yalign 0.5
+
+screen textbutton_screen():
+    vbox:
+        textbutton "Оставить конверт" action Jump("wine")
 
 label start:
     $ player_name = renpy.input("Введите ваше имя:")
@@ -111,9 +122,17 @@ label start:
     stop sound
     with Dissolve(2.0)
     show bg wedding
+    show gg_img at half_size
     g "Поздравляю вас с этим замечательным днем. Желаю вам любви, счастья и процветания в вашем новом совместном пути."
+    hide gg_img
     play sound "аплодисменты.ogg"
-    g "*оставляет конверт"
+    menu:
+        "Оставить конверт"
+        "Конверт":
+            pass
+    show mail_img at half_size_centre
+    f "*Оставляет конверт на столе*"
+    hide mail_img
     play sound "музыка для танцев.m4a"
     mg "Я чувствую себя как наблюдатель, стоящий на отшибе, взглядом скользящий по лицам, которые сияют от веселья и беззаботности."
     mg "И все же, я не могу подключиться к этой атмосфере радости, как будто я одинокий путник, заблудившийся в шумном городе развлечений..."
@@ -187,10 +206,13 @@ label start:
     with Dissolve(2.0)
     play sound "audio/будильник.mp3"
     mg "Кажется я чувствую себя уже лучше, но всё ещё очень хочу пить и спать."
+    menu:
+        "Попить воды"
+        "Набрать воду":
+            pass
     play sound "audio/вода из крана.mp3"
-    g "*набирает воду*"
-    stop sound
     mg "Как обычно поднёс его к раковине чтобы набрать воды и... Вода не попадала в стакан..."
+    stop sound
     mg "Нет, она не просто не попадала, струя все время меняла свое направление прямо в воздухе, будто по волшебству..."
     g "Что за чертовщина?!"
     mg "Нет, я не испугался или ещё чего, может так и было бы, если бы я не был таким сонным, но я определённо в замешательстве…"
