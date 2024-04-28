@@ -22,34 +22,36 @@ image cake = "images/bg/тортик.png"
 image f_image = "images/person/отец ГГ.png"
 image gg_kid_img = "images/person/ГГ ребенок.png"
 image mail_img = "images/bg/конверт.png"
+image gg_img_home_vibe = "images/person/гг пижама.png"
 
 transform half_size: 
     zoom 0.4 #adjust as required
-    xalign 1.0
+    xalign 0
 
 transform half_size_centre: 
     zoom 0.4 #adjust as required
     xalign 0.5
-    yalign 0.5
 
 
 transform half_size_kid: 
     zoom 0.3 #adjust as required
-    xalign 1.0
     yalign 1.3
 
 transform half_size_p: 
     zoom 0.4 #adjust as required
+    xalign 1.0
 
 transform half_size_k: 
     zoom 0.9 #adjust as required
+    xalign 1.0
 
 transform half_size_d: 
     zoom 0.3 #adjust as required
     yalign 0.5
+    xalign 1.0
 
 transform half_size_cake: 
-    zoom 0.3 #adjust as required
+    zoom 0.25 #adjust as required
     xalign 0.5
     yalign 0.5
 
@@ -76,11 +78,13 @@ label start:
     p "увидимся на следующей неделе!"
     show gg_img at half_size
     hide p_image
+    hide gg_image
     g "До встречи."
     play sound "audio/дверь.ogg"
     pause 0.5
     play sound "audio/ночной город.ogg"
     show bg street
+    show gg_img at half_size_centre
     mg "Мне кажется, что все это абсолютно глупая затея и ни к чему эти пустые разговоры с психологом не приведут...."
     mg "Лучше бы еще один час поработал или сходил в качалку."
     hide gg_img
@@ -122,7 +126,7 @@ label start:
     stop sound
     with Dissolve(2.0)
     show bg wedding
-    show gg_img at half_size
+    show gg_img at half_size_centre
     g "Поздравляю вас с этим замечательным днем. Желаю вам любви, счастья и процветания в вашем новом совместном пути."
     hide gg_img
     play sound "аплодисменты.ogg"
@@ -160,6 +164,7 @@ label start:
     tp "Босс: По случаю моей свадьбы, объявляю всем выходной!! Сегодня все дела отменяются, поэтому отдохните как следует и отпразднуйте мою свадьбу!!"
     tp "Коллега 1: Ура! Поздравляем вас!"
     tp "Коллега 2: Счастья молодоженам!!"
+    show gg_img_home_vibe at half_size_centre
     mg "Иногда у меня возникает такое ощущение, что весь мир наслаждается счастьем, а я остаюсь за бортом этой радости."
     mg "Наблюдение за влюбленными парочками, улыбающимися и целующимися, иногда вызывает странный смешанный набор эмоций внутри меня."
     mg "С одной стороны, мне все равно на них, но с другой – это как соль на рану."
@@ -171,6 +176,7 @@ label start:
     mg "Каждый человек и его история уникальны, и сравнивать себя с кем-то другим – это как сравнивать яблоки с апельсинами..."
     mg "Но я точно уверен в том, что заслуживаю самой большой на свете любви..."
     mg "Я просто должен стать счастливым!"
+    hide gg_img_home_vibe
     # сцена др гг
     show bg kitchen
     show cake at half_size_cake
