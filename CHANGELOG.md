@@ -1,3 +1,14 @@
+Merge:
+Author: redyc123 <redyc123@gmail.com>
+Date:   Mon Apr 29 17:01:53 2024 +0500
+
+    0.4.0
+
+Author: redyc123 <redyc123@gmail.com>
+Date:   Mon Apr 29 17:00:49 2024 +0500
+
+    up speed stream, new voices
+
 Merge: ec413dc 12239cd
 Author: redyc123 <redyc123@gmail.com>
 Date:   Sun Apr 28 09:19:02 2024 +0500
