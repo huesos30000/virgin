@@ -62,6 +62,7 @@ screen textbutton_screen():
         textbutton "Оставить конверт" action Jump("wine")
 
 label start:
+    play sound "audio/фоновая музыка.ogg"
     $ player_name = renpy.input("Введите ваше имя:")
     $ g = Character(player_name, color="#0015ff")
     $ mg = Character('Мысли [player_name]', color="#0095ff")
@@ -97,6 +98,7 @@ label start:
     f "Хотя даже в некоторые обычные вещи люди отказываются верить. "
     stop sound
     # катсцена 1
+    play sound "audio/фоновая музыка.ogg"
     mg "{i}я уже много лет работаю в компании. Все знают меня как ценного сотрудника. Начальство просто боготворит меня. Еще немного и я наконец-то добьюсь повышения."
     show bg boss
     show gg_img at half_size
@@ -129,6 +131,7 @@ label start:
     with Dissolve(2.0)
     show bg wedding
     show gg_img at half_size_centre
+    play sound "audio/звук ресторана.mp3"
     g "Поздравляю вас с этим замечательным днем. Желаю вам любви, счастья и процветания в вашем новом совместном пути."
     hide gg_img
     play sound "аплодисменты.ogg"
@@ -163,6 +166,7 @@ label start:
     stop sound
     with Dissolve(2.0)
     # далее: сцена выходной
+    play sound "audio/фоновая музыка.ogg"
     show bg room
     tp "Босс: По случаю моей свадьбы, объявляю всем выходной!! Сегодня все дела отменяются, поэтому отдохните как следует и отпразднуйте мою свадьбу!!"
     tp "Коллега 1: Ура! Поздравляем вас!"
@@ -183,6 +187,7 @@ label start:
     # сцена др гг
     show bg kitchen
     show cake at half_size_cake
+    play sound  "audio/грустная музыка.mp3"
     g "С днем рождения меня.. С днем рождения меня…"
     menu:
         "Загадать желание"
@@ -226,6 +231,7 @@ label start:
     with Dissolve(2.0)
     play sound "audio/будильник.mp3"
     mg "{i}Кажется я чувствую себя уже лучше, но всё ещё очень хочу пить и спать."
+    play sound "audio/фоновая музыка.ogg"
     show bg srakoina_without
     menu:
         "Попить воды"
@@ -235,6 +241,7 @@ label start:
     play sound "audio/вода из крана.mp3"
     mg "{i}Как обычно поднёс его к раковине чтобы набрать воды и... Вода не попадала в стакан..."
     stop sound
+    play sound "audio/фоновая музыка.ogg"
     mg "{i}Нет, она не просто не попадала, струя все время меняла свое направление прямо в воздухе, будто по волшебству..."
     g "Что за чертовщина?!"
     mg "{i}Нет, я не испугался или ещё чего, может так и было бы, если бы я не был таким сонным, но я определённо в замешательстве…"
@@ -242,6 +249,7 @@ label start:
     mg "{i}Я просто так не сдамся!"
     play sound "audio/разбилось стекло.ogg"
     g "Стакан... Лопнул..."
+    play sound "audio/фоновая музыка.ogg"
     show bg srakoina_without
     mg "{i}Пара осколков впились в руку, не глубоко, но до крови."
     mg "{i}Я обработал раны, и взглянув на часы понял, что уже опаздываю."
