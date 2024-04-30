@@ -7,7 +7,7 @@ define d = Character('Отец', color="#000000")
 
 image bg tiled = Tile("images/bg/психолог фон.png")
 image bg street = Tile("images/bg/улица день.png")
-image bg boss = Tile("images/bg/работа день.jpg")
+image bg boss = Tile("images/bg/кабинет босса.png")
 image bg gym = Tile("images/bg/качалка.jpg")
 image bg wedding = Tile("images/bg/свадьба.jpg")
 image bg room = Tile("images/bg/комната гг.jpg")
@@ -15,6 +15,10 @@ image bg srakoina_without = Tile("images/bg/раковина без воды.jpg
 image bg srakoina = Tile("images/bg/раковина.jpg")
 image bg kitchen = Tile("images/bg/кухня.jpg")
 image bg father = Tile("images/bg/кабинет отца флешбек.png")
+image bg magic1 = Tile("images/bg/магия воды 1.jpg")
+image bg magic2 = Tile("images/bg/магия воды 2.jpg")
+image bg magic3 = Tile("images/bg/магия воды 23.jpg")
+
 
 image gg_img = "images/person/ГГ.png"
 image p_image = "images/person/психолог.png"
@@ -136,8 +140,8 @@ label start:
     hide gg_img
     play sound "аплодисменты.ogg"
     menu:
-        "Оставить конверт"
-        "Конверт":
+        "Нельзя приходить на свадьбу без подарка"
+        "Оставить конверт":
             pass
     show mail_img at half_size_centre
     f "*Оставляет конверт на столе*"
@@ -193,6 +197,7 @@ label start:
         "Загадать желание"
         "Да":
             $ dream = renpy.input("Введите желание:")
+            g "[dream] - вот что я хочу."
         "Нет":
             pass
     hide cake
@@ -240,14 +245,18 @@ label start:
     show bg srakoina
     play sound "audio/вода из крана.mp3"
     mg "{i}Как обычно поднёс его к раковине чтобы набрать воды и... Вода не попадала в стакан..."
-    stop sound
-    play sound "audio/фоновая музыка.ogg"
+    show bg magic1
     mg "{i}Нет, она не просто не попадала, струя все время меняла свое направление прямо в воздухе, будто по волшебству..."
+    show bg magic2 
     g "Что за чертовщина?!"
+    show bg magic3
     mg "{i}Нет, я не испугался или ещё чего, может так и было бы, если бы я не был таким сонным, но я определённо в замешательстве…"
+    show bg magic1
     mg "{i}Попытавшись ещё пару раз набрать воды, я понял, что просто так этого сделать не получится."
+    show bg magic2
     mg "{i}Я просто так не сдамся!"
-    play sound "audio/разбилось стекло.ogg"
+    show bg magic3
+    play sound "audio/разбился стакан.mp3"
     g "Стакан... Лопнул..."
     play sound "audio/фоновая музыка.ogg"
     show bg srakoina_without
