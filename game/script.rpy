@@ -38,7 +38,7 @@ image gg_img_home_vibe = "images/person/гг пижама.png"
 
 transform half_size: 
     zoom 0.4 #adjust as required
-    xalign 0
+    xalign 0.1
 
 transform half_size_centre: 
     zoom 0.4 #adjust as required
