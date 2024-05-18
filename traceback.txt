@@ -1,32 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 53, in script
-    g "В детстве меня никто не любил, или может любил, но я об этом ничего не помню." with typewriter
-  File "game/script.rpy", line 53, in <module>
-    g "В детстве меня никто не любил, или может любил, но я об этом ничего не помню." with typewriter
-NameError: name 'typewriter' is not defined
+  File "game/script.rpy", line 468, in script
+    $ renpy.display_menu(actions.items())
+  File "game/script.rpy", line 468, in <module>
+    $ renpy.display_menu(actions.items())
+NameError: name 'actions' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 53, in script
-    g "В детстве меня никто не любил, или может любил, но я об этом ничего не помню." with typewriter
-  File "D:\renpy\renpy-8.2.0-sdk\renpy\ast.py", line 2557, in execute
-    Say.execute(self)
-  File "D:\renpy\renpy-8.2.0-sdk\renpy\ast.py", line 614, in execute
-    say_menu_with(self.with_, renpy.game.interface.set_transition)
-  File "D:\renpy\renpy-8.2.0-sdk\renpy\ast.py", line 429, in say_menu_with
-    what = renpy.python.py_eval(expression)
-  File "D:\renpy\renpy-8.2.0-sdk\renpy\python.py", line 1209, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "D:\renpy\renpy-8.2.0-sdk\renpy\python.py", line 1202, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 53, in <module>
-    g "В детстве меня никто не любил, или может любил, но я об этом ничего не помню." with typewriter
-NameError: name 'typewriter' is not defined
+  File "game/script.rpy", line 468, in script
+    $ renpy.display_menu(actions.items())
+  File "D:\renpy\renpy-8.2.0-sdk\renpy\ast.py", line 823, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "D:\renpy\renpy-8.2.0-sdk\renpy\python.py", line 1178, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/script.rpy", line 468, in <module>
+    $ renpy.display_menu(actions.items())
+NameError: name 'actions' is not defined
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.2.0.24012702
 virgin 1.0
-Sat Apr 27 20:37:32 2024
+Sat May 18 13:33:57 2024
