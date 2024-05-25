@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 975: end of line expected.
-    mg "Я почувствовал, как её слова проникают в самую глубину моей души." mg "Быть с Эммой значило бы отказаться от нашей текущей жизни, нашей работы, нашей магии."
-                                                                           ^
+File "game/script.rpy", line 499: end of line expected.
+    jump LL1 with Dissolve(2.0)
+             ^
 
 Ren'Py Version: Ren'Py 8.2.0.24012702
-Sun May 19 16:03:54 2024
+Sat May 25 16:57:20 2024
