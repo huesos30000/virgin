@@ -1457,7 +1457,7 @@ style bubble_what:
     align (0.5, 0.5)
     text_align 0.5
     layout "subtitle"
-    color "#000"
+    color "#000000"
 
 define bubble.frame = Frame("gui/bubble.png", 55, 55, 55, 95)
 define bubble.thoughtframe = Frame("gui/thoughtbubble.png", 55, 55, 55, 55)
